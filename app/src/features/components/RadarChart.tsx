@@ -10,6 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
+import { ChartOptions } from 'chart.js';
 
 ChartJS.register(
   RadialLinearScale,
@@ -20,13 +21,13 @@ ChartJS.register(
   Legend
 );
 
-export type Props = { // ①
+interface RadarChartProps {
     label?: string
     labels?: string[];
     radarData?: number[];
 };
 
-export const options = {
+const options: ChartOptions<'radar'> = {
     scales: {
       r: {
         min: 0,
@@ -60,7 +61,7 @@ export const options = {
     }
 };
 
-export default function RadarChart({label = 'test', labels = ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'], radarData = [2, 2, 3, 4, 5, 5]}: Props): JSX.Element {
+export default function RadarChart({label = 'test', labels = ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'], radarData = [2, 2, 3, 4, 5, 5]}: RadarChartProps): JSX.Element {
 
     var data = {
         labels: labels,
