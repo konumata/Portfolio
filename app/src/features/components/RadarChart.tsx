@@ -32,7 +32,24 @@ export const options = {
         min: 0,
         max: 5,
         ticks: {
-          stepSize: 1
+          stepSize: 1,
+          color: '#e0e0e0',  
+          font: {
+            size: 14  
+          }
+        },
+        grid: {
+          color: 'rgba(255, 255, 255, 0.2)'  
+        },
+        angleLines: {
+          color: 'rgba(255, 255, 255, 0.2)'  
+        },
+        pointLabels: {
+          color: '#e0e0e0',  
+          font: {
+            size: 16,  
+            weight: 'bold'  
+          }
         }
       }
     },
@@ -41,7 +58,7 @@ export const options = {
         display: false
       }
     }
-  };
+};
 
 export default function RadarChart({label = 'test', labels = ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'], radarData = [2, 2, 3, 4, 5, 5]}: Props): JSX.Element {
 
@@ -51,8 +68,8 @@ export default function RadarChart({label = 'test', labels = ['Thing 1', 'Thing 
           {
             label: label,
             data: radarData,
-            backgroundColor: 'rgba(192,192,192, 0.2)',
-            borderColor: 'rgba(192,192,192, 1)',
+            backgroundColor: 'rgba(74, 158, 255, 0.2)',  
+            borderColor: 'rgba(74, 158, 255, 1)',  
             borderWidth: 2,
           },
         ],
