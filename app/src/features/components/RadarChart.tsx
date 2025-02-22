@@ -39,16 +39,16 @@ export const options = {
           }
         },
         grid: {
-          color: 'rgba(255, 255, 255, 0.2)'  
+          color: '#404040'  
         },
         angleLines: {
-          color: 'rgba(255, 255, 255, 0.2)'  
+          color: '#404040'  
         },
         pointLabels: {
           color: '#e0e0e0',  
           font: {
             size: 16,  
-            weight: 'bold'  
+            weight: 'bold' as const  
           }
         }
       }
