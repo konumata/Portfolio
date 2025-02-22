@@ -6,8 +6,10 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@emailjs/browser": "^4.4.1",
         "@types/node": "^20.11.19",
         "@types/react": "^18.2.57",
+        "browserslist": "^4.24.4",
         "chart.js": "^4.4.1",
         "next": "^14.1.0",
         "react": "^18.2.0",
@@ -16,6 +18,7 @@
         "typescript": "^5.3.3"
     },
     "devDependencies": {
-        "@faker-js/faker": "^8.4.1"
+        "@faker-js/faker": "^8.4.1",
+        "update-browserslist-db": "^1.1.2"
     }
 }
