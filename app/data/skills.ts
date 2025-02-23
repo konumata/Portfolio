@@ -21,9 +21,9 @@ export const skills: Skills = {
         {
             name: "DB",
             skills: [
-                { label: "SQL Server", value: 5, description: "SQL Serverは主に開発用のDBとして使用しました。" },
                 { label: "MySQL", value: 2, description: "基本的なクエリの作成と実行が可能です。" },
-                { label: "PostgreSQL", value: 2, description: "基本的な操作が可能です。" }
+                { label: "PostgreSQL", value: 2, description: "基本的な操作が可能です。" },
+                { label: "SQL Server", value: 5, description: "SQL Serverは主に開発用のDBとして使用しました。" }
             ]
         },
         {
