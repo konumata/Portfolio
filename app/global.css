@@ -220,6 +220,13 @@ header nav a:hover {
   .fixed-header {
     display: none;
   }
+  header.md\:hidden {
+    /* スマホ用headerにだけ適用 */
+    height: 40px; /* お好みの値に */
+    padding-top: env(safe-area-inset-top);
+    /* iOS 11~12 互換 */
+    /* padding-top: constant(safe-area-inset-top); */
+  }
 }
 
 /* スマホ用のハンバーガーメニュー配置 */
@@ -386,66 +393,64 @@ footer {
 .star5_rating[data-rate="1"]:after{ width: 20%; }
 
 .works-container {
-  position: relative;
-  margin-top: 2rem;
-  padding: 1rem;
-  max-width: 800px;  /* コンテナの最大幅を設定 */
-  margin-left: auto;
-  margin-right: auto;
+    background-color: #1a1a1a;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .works-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-height: 600px;
-  overflow-y: auto;
-  padding-right: 1rem;
+    background-color: #2a2a2a;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .works-grid::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 .works-grid::-webkit-scrollbar-track {
-  background: #1a1a1a;
-  border-radius: 4px;
+    background: #1a1a1a;
+    border-radius: 4px;
 }
 
 .works-grid::-webkit-scrollbar-thumb {
-  background: #4a9eff;
-  border-radius: 4px;
+    background: #4a9eff;
+    border-radius: 4px;
 }
 
 .works-grid::-webkit-scrollbar-thumb:hover {
-  background: #357abd;
+    background: #357abd;
 }
 
 .work-card {
-  background: #1a1a1a;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-}
-
-.work-card:hover {
-  transform: translateY(-2px);
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(100% - 8px);
+    margin-right: 8px;
+    box-sizing: border-box;
+    word-wrap: break-word;
 }
 
 .work-card h3 {
-  color: #4a9eff;
-  margin-bottom: 1rem;
-  font-size: 1.5em;
+    margin-top: 0;
+    word-wrap: break-word;
 }
 
 .work-card p {
-  margin-bottom: 0.8rem;
-  line-height: 1.6;
-}
-
-.work-card strong {
-  color: #4a9eff;
+    margin: 10px 0;
+    word-wrap: break-word;
 }
 
 .work-links {
