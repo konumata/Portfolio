@@ -2,10 +2,12 @@
 
 import React, { FormEvent, useState } from "react";
 import RadarChart from "./src/features/components/RadarChart";
-import Card from "./src/features/components/content";
 import emailjs from '@emailjs/browser';
 import { works } from './data/works';
 import { skills } from './data/skills';
+import { profile } from './data/profile';
+import { blogs } from './data/blogs';
+import { socialLinks } from './data/social';
 
 export default function Page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,7 +21,7 @@ export default function Page() {
     try {
       const formData = new FormData(e.currentTarget);
       const templateParams = {
-        to_email: 'kota.numata.work@gmail.com',
+        to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL as string,
         from_email: formData.get('email'),
         company: formData.get('company'),
         from_name: formData.get('name'),
@@ -77,42 +79,20 @@ export default function Page() {
       <section className="section" id="Profile">
         <div className="inner">
           <h1>
-            <img width={60} src="image/profile.png"/>
             <span>PROFILE</span>
           </h1>
-          <p>
-          API・Python・GASを活用し、業務効率化と収益最大化を支援するフリーランスエンジニアです。
-          </p>
-          <p>
-            ECサイト運営者や個人事業主など、「もっと効率的に稼ぎたい」という方に向けて、
-            以下のソリューションを提供しています。
-          </p>
+          <p>{profile.description}</p>
+          <p>{profile.introduction}</p>
           <ul>
-            <li>
-              <strong>Python：</strong>
-              データ処理・分析の自動化、ウェブスクレイピング、カスタムアプリ開発
-            </li>
-            <li>
-              <strong>GAS(Google Apps Script)：</strong>
-              スプレッドシートやGmailなどを連携した在庫・顧客管理の自動化
-            </li>
-            <li>
-              <strong>Amazon API：</strong>
-              リアルタイムの価格・在庫情報取得、売れ筋商品のランキング抽出、レビュー分析
-            </li>
-            <li>
-              <strong>オーダーメイド開発：</strong>
-              既存システムとの連携を含め、ビジネス特化型ツールを開発
-            </li>
+            {profile.services.map((service, index) => (
+              <li key={index}>
+                <strong>{service.title}：</strong>
+                {service.description}
+              </li>
+            ))}
           </ul>
-          <p>
-            導入企業からは「売上1.5倍＆作業時間半減」「クレーム激減」
-            「商品リサーチ時間4分の1」など、多くの成果をご報告いただいています。
-          </p>
-          <p>
-            まずは無料でご相談を承ります。ビジネス課題やご要望に合わせた最適なプランを
-            ご提案いたしますので、お気軽にお問い合わせください。
-          </p>
+          <p>{profile.results}</p>
+          <p>{profile.contact}</p>
         </div>
       </section>
 
@@ -197,26 +177,24 @@ export default function Page() {
       <section className="section" id="Blog">
         <div className="inner">
           <h1>
-            <img width={60} src="image/blog.png"/>
-            <span>BLOG</span>
+            <span>{blogs.title}</span>
           </h1>
           <p className="section-description">
-            技術的な知見や開発で得た経験をQiita、Zenn、noteで発信しています。<br />
-            主にWeb開発、システム設計、プログラミングに関する記事を執筆しています。
+            {blogs.description}
           </p>
           <div className="blog-links">
-            <a href={process.env.NEXT_PUBLIC_QIITA_URL} target="_blank" rel="noopener noreferrer" className="blog-link">
-              <img src="image/qiita.png" alt="Qiita" width={150} />
-              <span>Qiita</span>
-            </a>
-            <a href={process.env.NEXT_PUBLIC_ZENN_URL} target="_blank" rel="noopener noreferrer" className="blog-link">
-              <img src="image/zenn.png" alt="Zenn" width={150} />
-              <span>Zenn</span>
-            </a>
-            <a href={process.env.NEXT_PUBLIC_NOTE_URL} target="_blank" rel="noopener noreferrer" className="blog-link">
-              <img src="image/note.png" alt="note" width={150} />
-              <span>note</span>
-            </a>
+            {blogs.platforms.map((platform, index) => (
+              <a 
+                key={index}
+                href={platform.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="blog-link"
+              >
+                <img src={platform.icon} alt={platform.name} width={150} />
+                <span>{platform.name}</span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -227,6 +205,20 @@ export default function Page() {
             <img width={60} src="image/contact.png"/>
             <span>CONTACT</span>
           </h1>
+          <div className="social-links">
+            {Object.entries(socialLinks).map(([key, platform]) => (
+              <a
+                key={key}
+                href={platform.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <img src={platform.icon} alt={platform.title} width={150} />
+                <span>{platform.title}</span>
+              </a>
+            ))}
+          </div>
           <div className="contact-form">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
