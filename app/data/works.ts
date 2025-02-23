@@ -6,7 +6,7 @@ export const works: Works = {
     {
       title: "VoCデータ収集の自動化",
       period: "2024年9月 - 2025年1月",
-      description: `VoC（Voice of Customer）データをコールセンター／お客様サポートフォームの2軸で分析するため、データ収集を自動化する仕組みを構築。要件定義からテスト・本番移行まで1人で対応する部分が多く、幅広い工程を担当。`,
+      description: `お客様の声（VoC）を収集するために、データ収集を自動化する仕組みを構築。要件定義からテスト・本番移行まで1人で対応する部分が多く、幅広い工程を担当。`,
       technologies: ["Python", "Google Apps Script", "ChatGPT"],
     },
     {
