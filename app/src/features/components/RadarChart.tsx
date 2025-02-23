@@ -49,9 +49,9 @@ const options: ChartOptions<'radar'> = {
       pointLabels: {
         color: '#e0e0e0',  
         font: {
-          size: 16,  
-          weight: 'bold' as const  
-        }
+          size: 12  
+        },
+        padding: 10
       }
     }
   },
