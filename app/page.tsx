@@ -4,6 +4,8 @@ import React, { FormEvent, useState } from "react";
 import RadarChart from "./src/features/components/RadarChart";
 import Card from "./src/features/components/content";
 import emailjs from '@emailjs/browser';
+import { works } from './data/works';
+import { skills } from './data/skills';
 
 export default function Page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -68,7 +70,7 @@ export default function Page() {
       <section className="section" id="Top">
         <div className="inner">
           <div className="logo">
-            <h1>My Portfolio</h1>
+            <h1>Portfolio</h1>
           </div>
         </div>
       </section>
@@ -117,48 +119,44 @@ export default function Page() {
       <section className="section" id="Skill">
         <div className="inner">
           <h1>
-            <img width={60} src="image/program.png"/>
+            <img width={60} src="image/skill.png"/>
             <span>SKILL</span>
           </h1>
-          <p>
+          <p className="section-description">
             主にオープン系の言語を中心にフロントエンドからバックエンドまで幅広い領域に触れながら、フルスタックエンジニアになれるよう日々研鑽を積んでいます。下のグラフは各スキルの理解度を表しています。
           </p>
-          <div className="chart">
-            <RadarChart label="SKILL" labels={["Front-End", "Back-End", "DB", "Frame-Work", "OS"]} radarData={[2, 4, 3, 2, 4]}></RadarChart>
+          <div className="skill-legend" style={{ 
+            marginTop: '1rem', 
+            padding: '1rem', 
+            background: '#1a1a1a', 
+            borderRadius: '8px',
+            marginBottom: '2rem'
+          }}>
+            <h4 style={{ color: '#4a9eff', marginBottom: '0.5rem' }}>チャートの見方</h4>
+            <ul style={{ listStyle: 'none', padding: 0 }}>
+              <li style={{ marginBottom: '0.3rem' }}><strong>1:</strong> 軽く使用した程度</li>
+              <li style={{ marginBottom: '0.3rem' }}><strong>2:</strong> 実務で数ヶ月以上使用していてもう少し習熟が必要</li>
+              <li style={{ marginBottom: '0.3rem' }}><strong>3:</strong> 実務レベルで自由に駆使できる</li>
+              <li style={{ marginBottom: '0.3rem' }}><strong>4:</strong> 実務で1年以上使用しており、他者への指導が可能</li>
+              <li style={{ marginBottom: '0.3rem' }}><strong>5:</strong> 実務で2年以上使用しており、システム設計から実装まで完全に理解している</li>
+            </ul>
+          </div>
+          <div className="skill-grid">
+            {skills.categories.map((category, index) => (
+              <div key={index} className="skill-card" style={{ textAlign: 'center' }}>
+                <h3 style={{ marginBottom: '1rem' }}>{category.name}</h3>
+                <RadarChart category={category} />
+                <div className="skill-descriptions" style={{ textAlign: 'left', marginTop: '1rem' }}>
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} className="skill-description" style={{ marginBottom: '0.5rem' }}>
+                      <strong>{skill.label}:</strong> {skill.description}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-
-        <Card label="Front-End" labels={["JavaScript", "TypeScript"]} star={[2, 2]} detail="WEBサイトを作成する際に習得しました。"></Card>
-        <Card 
-          label="Back-End" 
-          labels={["Python", "C#"]} 
-          star={[5, 3]} 
-          detail="Pythonは私がこよなく愛する言語であり、WEBサイトやデスクトップアプリ、Webスクレイピングなどの開発を行いました。C#はWindowsアプリの開発で使用しました。"
-        ></Card>
-        <Card
-          label="DB"
-          labels={["SQL Server"]}
-          star={[5]}
-          detail="SQL Serverは主に開発用のDBとして使用しました。"
-        ></Card>
-        <Card
-          label="Frame-Work"
-          labels={["Django", "Node.js", "Next.js"]}
-          star={[2, 2, 2]}
-          detail="本サイトはNext.jsで作成し、Vercelにて公開されています。"
-        ></Card>
-        <Card
-          label="OS"
-          labels={["Windows", "Linux"]}
-          star={[5, 3]}
-          detail="普段の開発はWindowsで行っています。LinuxはUbuntuのインストールから環境構築、開発まで可能です。"
-        ></Card>
-        <Card
-          label="Others"
-          labels={["Google Apps Script(GAS)", "Tableau", "Vs Code", "GitHub"]}
-          star={[5, 4, 4, 2]}
-          detail="普段のコーディングはVS Codeで行っています。Google Apps Script(GAS)とTableauは仕事用に使用しています。GitHubは開発用のリポジトリを管理しています。"
-        ></Card>
       </section>
 
       <section className="section" id="Works">
@@ -181,70 +179,16 @@ export default function Page() {
               <span>ランサーズ</span>
             </a>
           </div>
-          <div className="works-grid">
-            <div className="work-card">
-              <h3>VoCデータ収集の自動化</h3>
-              <p>
-              【プロジェクト概要】<br></br>
-              VoC（Voice of Customer）データをコールセンター/お客様サポートフォームの2軸で分析するため、これらのデータを自動で収集するための仕組みを構築する<br></br><br></br>
-
-              【担当フェーズ】<br></br>
-              要件定義、基本設計、詳細設計、実装、単体テスト、結合テスト、本番移行<br></br><br></br>
-
-              【担当業務】<br></br>
-              要件定義、基本設計、詳細設計、実装、単体テスト、結合テスト、本番移行
-
-              【ポイント】
-              多くのチームが関わる案件でしたが、要件定義から実装、テスト、本番移行まで自身のチームが担当する部分については1人で対応しました。
-              </p>
-            </div>
-            <div className="work-card">
-              <h3>社内向けAIチャットボット開発</h3>
-              <p>
-              【プロジェクト概要】<br></br>
-              社内スタッフが抱えていた非効率的な作業、すなわち膨大なマニュアルの中から該当する情報を手動で調べる作業を改善するため、社内マニュアルを学習させたAIチャットボットを開発しました。このチャットボットにより、必要な情報を迅速かつ簡単に検索できるようにし、業務効率化を図りました。<br></br><br></br>
-
-              【担当フェーズ】<br></br>
-              プロジェクト管理、基本設計、詳細設計、実装、本番移行<br></br><br></br>
-
-              【担当業務】<br></br>
-              プロジェクト管理、基本設計、詳細設計、実装、本番移行<br></br><br></br>
-
-              【ポイント】
-              サブリーダーとして、プロジェクト管理はもちろんのこと、AIを使ったサービスの構築を実施しました。
-              </p>
-            </div>
-            <div className="work-card">
-              <h3>ジム故障データ連携バッチ開発</h3>
-              <p>
-              【プロジェクト概要】<br></br>
-              ジムに設置されたタブレット端末から故障内容をフォームに入力すると、Kintoneに入力されたデータをAPIを使用してBacklogへ連携するバッチ処理の開発を実施しました。<br></br><br></br>
-
-              【担当フェーズ】<br></br>
-              プロジェクト管理、要件定義、基本設計、詳細設計、実装、テスト、本番移行<br></br><br></br>
-
-              【担当業務】<br></br>
-              プロジェクト管理、要件定義、基本設計、詳細設計、実装、本番移行<br></br><br></br>
-
-              【ポイント】
-              自社サービスの運用をサポートするため、APIを活用したシステム間のデータ連携を実現しました。
-              </p>
-            </div>
-            <div className="work-card">
-              <h3>SAP ECCのEOSに伴うSAP S4/HANA移行</h3>
-              <p>
-              【プロジェクト概要】<br></br>
-              SAP ERP(ECC6.0)の保守期限に伴い、SAP S4/HANAへ移行する。それに伴い、BIレポートとして活用しているTableauデータソースについて、SQLを通じて加工・変換したSAPデータを抽出しているが、ECCを前提としたデータの作りとなっているため、S4データを前提とするように、SQLのI/F構築とTableauデータソースの開発を図る。<br></br><br></br>
-
-              【担当フェーズ】<br></br>
-              プロジェクト管理、基本設計、結合テスト、本番移行<br></br><br></br>
-
-              【担当業務】<br></br>
-              プロジェクト管理、基本設計、結合テスト、本番移行<br></br><br></br>
-
-              【ポイント】
-              サブリーダーとして、プロジェクト管理はもちろんのこと、ユーザーとなるUS販社とJiraを通じて開発物の仕様を詰めるなど実施しました。
-              </p>
+          <div className="works-container">
+            <div className="works-grid">
+              {works.items.map((work, index) => (
+                <div key={index} className="work-card">
+                  <h3>{work.title}</h3>
+                  <p>{work.description}</p>
+                  <p><strong>使用技術：</strong>{work.technologies.join(', ')}</p>
+                  <p><strong>期間：</strong>{work.period}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

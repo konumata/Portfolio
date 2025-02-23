@@ -195,35 +195,63 @@ footer {
 .star5_rating[data-rate="2"]:after{ width: 40%; }
 .star5_rating[data-rate="1"]:after{ width: 20%; }
 
-.works-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 30px;
-    max-width: 1000px;
+.works-container {
+    position: relative;
+    margin-top: 2rem;
+    padding: 1rem;
+    max-width: 800px;  /* コンテナの最大幅を設定 */
     margin-left: auto;
     margin-right: auto;
 }
 
+.works-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.works-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.works-grid::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 4px;
+}
+
+.works-grid::-webkit-scrollbar-thumb {
+    background: #4a9eff;
+    border-radius: 4px;
+}
+
+.works-grid::-webkit-scrollbar-thumb:hover {
+    background: #357abd;
+}
+
 .work-card {
-    background-color: #2a2a2a;
-    border: 1px solid #404040;
+    background: #1a1a1a;
+    padding: 1.5rem;
     border-radius: 8px;
-    padding: 30px;
-    transition: transform 0.3s ease;
-    color: #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-2px);
 }
 
 .work-card h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
     color: #4a9eff;
+    margin-bottom: 1rem;
     font-size: 1.5em;
 }
 
 .work-card p {
+    margin-bottom: 0.8rem;
     line-height: 1.6;
-    margin-bottom: 15px;
 }
 
 .work-card strong {
@@ -288,16 +316,18 @@ footer {
 .blog-links {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin: 30px auto;
-    flex-wrap: nowrap;  
-    max-width: 800px;   
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .blog-link {
-    flex: 1;           
-    min-width: 200px;  
-    max-width: 250px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #e0e0e0;
+    transition: transform 0.2s ease;
 }
 
 .freelance-links {
@@ -347,99 +377,183 @@ footer {
     padding: 0 20px;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    .section {
-        padding: 40px 20px;
-    }
-
-    .works-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .blog-links, .contact-links {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .contact-form {
-        margin: 20px;
-        padding: 15px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        font-size: 14px;
-    }
-
-    .freelance-links {
-        gap: 20px;
-    }
-
-    .freelance-link {
-        padding: 15px;
-    }
-
-    .freelance-link img {
-        width: 120px;
-    }
-
-    .section-description {
-        padding: 0 20px;
-        font-size: 1em;
-    }
-}
-
-/* Contact Form Styles */
 .contact-form {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #2a2a2a;
+    background: #1a1a1a;
+    padding: 2.5rem;
     border-radius: 8px;
-    border: 1px solid #404040;
+    max-width: 800px;
+    margin: 2rem auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 0.8rem;
     color: #e0e0e0;
-    font-weight: bold;
+    font-size: 1rem;
 }
 
-.form-group .required {
-    color: #ff4a4a;
-    margin-left: 4px;
+.form-group label span,  /* 既存の*マーク用 */
+.required-mark {        /* 新しいクラス */
+    color: #ff4444;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
+    padding: 1rem;
     border: 1px solid #404040;
     border-radius: 4px;
-    background-color: #1a1a1a;
+    background: #2a2a2a;
     color: #e0e0e0;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    font-size: 1rem;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #4a9eff;
-    box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2);
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #808080;
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 20px;
+    }
+
+    .inner {
+        padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blog-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 300px;
+        margin: 1rem auto;
+    }
+
+    .blog-link {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .blog-link img {
+        width: 100px;
+        height: auto;
+    }
+
+    .works-container {
+        padding: 0.5rem;
+        margin: 1rem 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .works-grid {
+        padding-right: 0.5rem;
+    }
+
+    .work-card {
+        padding: 1rem;
+    }
+
+    .work-card h3 {
+        font-size: 1.2em;
+    }
+
+    .blog-links, .contact-links {
+        flex-direction: column;
+    }
+
+    .skill-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skill-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .skill-legend {
+        margin: 1rem 0;
+        padding: 0.8rem;
+        font-size: 0.9em;
+    }
+
+    .radar {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .contact-form {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 16px;
+    }
 }
 
+@media (max-width: 480px) {
+    .section {
+        padding: 30px 10px;
+    }
+
+    .work-card {
+        font-size: 0.9em;
+    }
+
+    .skill-legend {
+        font-size: 0.8em;
+    }
+
+    .radar {
+        max-width: 250px;
+    }
+
+    .contact-form {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .blog-links {
+        gap: 1rem;
+    }
+
+    .blog-link {
+        padding: 0.8rem;
+    }
+
+    .blog-link img {
+        width: 80px;
+    }
+}
+
+/* Contact Form Styles */
 .submit-button {
     width: 100%;
     padding: 14px;

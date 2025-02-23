@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 import { ChartOptions } from 'chart.js';
+import { SkillCategory } from '../../../types/skills';
 
 ChartJS.register(
   RadialLinearScale,
@@ -22,59 +23,58 @@ ChartJS.register(
 );
 
 interface RadarChartProps {
-    label?: string
-    labels?: string[];
-    radarData?: number[];
+  category: SkillCategory;
 };
 
 const options: ChartOptions<'radar'> = {
-    scales: {
-      r: {
-        min: 0,
-        max: 5,
-        ticks: {
-          stepSize: 1,
-          color: '#e0e0e0',  
-          font: {
-            size: 14  
-          }
+  scales: {
+    r: {
+      min: 0,
+      max: 5,
+      ticks: {
+        stepSize: 1,
+        color: '#e0e0e0',  
+        font: {
+          size: 14  
         },
-        grid: {
-          color: '#404040'  
-        },
-        angleLines: {
-          color: '#404040'  
-        },
-        pointLabels: {
-          color: '#e0e0e0',  
-          font: {
-            size: 16,  
-            weight: 'bold' as const  
-          }
+        backdropColor: 'transparent',  
+        showLabelBackdrop: false      
+      },
+      grid: {
+        color: '#40404033'  
+      },
+      angleLines: {
+        color: '#40404033'  
+      },
+      pointLabels: {
+        color: '#e0e0e0',  
+        font: {
+          size: 16,  
+          weight: 'bold' as const  
         }
       }
-    },
-    plugins: {
-      legend: {
-        display: false
-      }
     }
+  },
+  plugins: {
+    legend: {
+      display: false
+    }
+  }
 };
 
-export default function RadarChart({label = 'test', labels = ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'], radarData = [2, 2, 3, 4, 5, 5]}: RadarChartProps): JSX.Element {
+export default function RadarChart({ category }: RadarChartProps): JSX.Element {
 
-    var data = {
-        labels: labels,
-        datasets: [
-          {
-            label: label,
-            data: radarData,
-            backgroundColor: 'rgba(74, 158, 255, 0.2)',  
-            borderColor: 'rgba(74, 158, 255, 1)',  
-            borderWidth: 2,
-          },
-        ],
-    };
+  var chartData = {
+    labels: category.skills.map(skill => skill.label),
+    datasets: [
+      {
+        data: category.skills.map(skill => skill.value),
+        backgroundColor: '#4a9eff33',  
+        borderColor: '#4a9eff',  
+        borderWidth: 1,
+      },
+    ],
+  };
 
-    return <Radar className='radar' data={data} options={options} />
+  return <Radar className='radar' data={chartData} options={options} />
 }
