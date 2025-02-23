@@ -297,7 +297,7 @@ export default function Page() {
           </div>
         </section>
         <footer>
-          <div className="copyRight">@Kouta Numata. All Rights Reserved.</div>
+          <div className="copyRight">@K. All Rights Reserved.</div>
         </footer>
       </main>
     </div>
