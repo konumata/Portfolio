@@ -205,20 +205,6 @@ export default function Page() {
             <img width={60} src="image/contact.png"/>
             <span>CONTACT</span>
           </h1>
-          <div className="social-links">
-            {Object.entries(socialLinks).map(([key, platform]) => (
-              <a
-                key={key}
-                href={platform.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-              >
-                <img src={platform.icon} alt={platform.title} width={150} />
-                <span>{platform.title}</span>
-              </a>
-            ))}
-          </div>
           <div className="contact-form">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
