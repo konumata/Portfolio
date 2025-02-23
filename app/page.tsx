@@ -28,7 +28,7 @@ const Header = () => {
       </nav>
 
       {/* スマホ用 固定ヘッダー：ハンバーガーメニューのみ */}
-      <header className="md:hidden fixed top-0 left-0 w-full bg-black text-white z-50 style={{ height: '70px' }}">
+      <header className="md:hidden fixed top-0 left-0 w-full bg-black text-white z-50" style={{ height: '70px' }}>
         <div className="flex justify-end items-center p-6">
           <button onClick={toggleMenu} className="menu-button p-2" aria-label="メニュー">
           <span className="menu-icon"></span>
@@ -112,7 +112,6 @@ export default function Page() {
         <section className="section" id="Skill">
           <div className="inner">
             <h1>
-              <img width={60} src="image/skill.png"/>
               <span>SKILL</span>
             </h1>
             <p className="section-description">
@@ -155,7 +154,6 @@ export default function Page() {
         <section className="section" id="Works">
           <div className="inner">
             <h1>
-              <img width={60} src="image/works.png"/>
               <span>WORKS</span>
             </h1>
             <p className="section-description">
@@ -215,7 +213,6 @@ export default function Page() {
         <section className="section" id="Contact">
           <div className="inner">
             <h1>
-              <img width={60} src="image/contact.png"/>
               <span>CONTACT</span>
             </h1>
             <div className="contact-form">
