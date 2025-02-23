@@ -28,8 +28,8 @@ const Header = () => {
       </nav>
 
       {/* スマホ用 固定ヘッダー：ハンバーガーメニューのみ */}
-      <header className="md:hidden fixed top-0 left-0 w-full bg-black text-white z-50" style={{ height: '70px' }}>
-        <div className="flex justify-end items-center p-6">
+      <header className="md:hidden fixed top-0 left-0 w-full bg-black text-white z-50" style={{ height: '40px' }}>
+        <div className="flex justify-center items-center h-full px-6"> 
           <button onClick={toggleMenu} className="menu-button p-2" aria-label="メニュー">
           <span className="menu-icon"></span>
           </button>
@@ -297,7 +297,7 @@ export default function Page() {
           </div>
         </section>
         <footer>
-          <div className="copyRight">@Kouta Numata. All Rights Reserved.</div>
+          <div className="copyRight">@K. All Rights Reserved.</div>
         </footer>
       </main>
     </div>
