@@ -28,7 +28,7 @@ const Header = () => {
       </nav>
 
       {/* スマホ用 固定ヘッダー：ハンバーガーメニューのみ */}
-      <header className="md:hidden fixed top-0 left-0 w-full bg-black text-white z-50" style={{ height: '40px' }}>
+      <header className="md:hidden fixed top-0 left-0 w-full bg-black text-white z-50">
         <div className="flex justify-center items-center h-full px-6"> 
           <button onClick={toggleMenu} className="menu-button p-2" aria-label="メニュー">
           <span className="menu-icon"></span>
