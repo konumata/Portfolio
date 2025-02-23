@@ -498,7 +498,7 @@ footer {
     .radar {
         width: 100% !important;
         height: auto !important;
-        max-width: 300px;
+        max-width: 350px !important;  
         margin: 0 auto;
     }
 
@@ -528,7 +528,7 @@ footer {
     }
 
     .radar {
-        max-width: 250px;
+        max-width: 300px !important;  
     }
 
     .contact-form {
