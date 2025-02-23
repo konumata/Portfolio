@@ -41,10 +41,10 @@ const options: ChartOptions<'radar'> = {
         showLabelBackdrop: false      
       },
       grid: {
-        color: '#40404033'  
+        color: '#404040aa'  
       },
       angleLines: {
-        color: '#40404033'  
+        color: '#404040aa'  
       },
       pointLabels: {
         color: '#e0e0e0',  
@@ -69,9 +69,13 @@ export default function RadarChart({ category }: RadarChartProps): JSX.Element {
     datasets: [
       {
         data: category.skills.map(skill => skill.value),
-        backgroundColor: '#4a9eff33',  
+        backgroundColor: '#4a9eff1a',  
         borderColor: '#4a9eff',  
-        borderWidth: 1,
+        borderWidth: 2,  
+        pointBackgroundColor: '#4a9eff',  
+        pointBorderColor: '#ffffff',  
+        pointBorderWidth: 2,  
+        pointRadius: 4,  
       },
     ],
   };
