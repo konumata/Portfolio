@@ -222,7 +222,7 @@ header nav a:hover {
   }
   header.md\:hidden {
     /* スマホ用headerにだけ適用 */
-    height: 40px; /* 高さを増やして余裕を持たせる */
+    height: 60px; /* 高さを増やして余裕を持たせる */
     padding-top: env(safe-area-inset-top);
     /* iOS 11~12 互換 */
     /* padding-top: constant(safe-area-inset-top); */
