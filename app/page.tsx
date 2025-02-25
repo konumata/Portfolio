@@ -28,14 +28,14 @@ const Header = () => {
       </nav>
 
       {/* スマホ用 固定ヘッダー：ハンバーガーメニューのみ */}
-      <header className="md:hidden fixed top-0 left-0 w-full bg-black text-white z-50">
-        <div className="flex justify-center items-center h-full px-6"> 
+      <header className="md:hidden fixed top-1/2 -translate-y-1/2 right-0 bg-transparent text-white z-50">
+        <div className="flex justify-center items-center h-full px-2"> 
           <button onClick={toggleMenu} className="menu-button p-2" aria-label="メニュー">
           <span className="menu-icon"></span>
           </button>
         </div>
         {isMenuOpen && (
-          <nav className={`menu-open ${isMenuOpen ? 'active' : ''}`}>  
+          <nav className={`menu-open ${isMenuOpen ? 'active' : ''} fixed top-1/2 -translate-y-1/2 right-0`}>  
             <a href="#Profile" className="block py-2 hover:text-gray-300" onClick={toggleMenu}>PROFILE</a>
             <a href="#Skill" className="block py-2 hover:text-gray-300" onClick={toggleMenu}>SKILL</a>
             <a href="#Works" className="block py-2 hover:text-gray-300" onClick={toggleMenu}>WORKS</a>

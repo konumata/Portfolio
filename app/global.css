@@ -220,6 +220,131 @@ header nav a:hover {
   .fixed-header {
     display: none;
   }
+  
+  .menu-button {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px 0 0 8px;
+    padding: 10px;
+  }
+  
+  .menu-open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    min-width: 200px;
+    border-radius: 8px 0 0 8px;
+  }
+
+  .menu-open a {
+    padding: 10px 20px;
+    text-align: right;
+    width: 100%;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .menu-open a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-right: 25px;
+  }
+
+  .menu-open a:last-child {
+    border-bottom: none;
+  }
+}
+
+/* 既存のメニューを非表示 */
+.menu {
+  display: none;
+}
+
+/* メニューが開いているときのアイコン */
+.menu-button.open .menu-icon {
+  background: transparent;
+}
+
+.menu-button.open .menu-icon:before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.menu-button.open .menu-icon:after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+.menu-button {
+  background-color: transparent !important; /* ボタンの背景を透過 */
+  border: none !important;                 /* 枠線も不要なら削除 */
+  box-shadow: none !important;            /* 影も削除したい場合 */
+  outline: none !important;               /* フォーカス枠も非表示にするなら */
+  cursor: pointer;                        /* カーソルをポインタに */
+}  
+
+/* さらに小さい画面向けのスタイル */
+@media screen and (max-width: 480px) {
+  header nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 5px;
+    text-align: center;
+  }
+
+  header nav a:last-child {
+    grid-column: 2;
+  }
+
+  header {
+    padding: 5px;
+  }
+
+  header nav a {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+}
+
+/* PC用のスタイル */
+@media (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+  .fixed-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(26, 26, 26, 0.8);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0 20px;
+    z-index: 1000;
+  }
+
+  .fixed-header a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+
+  .fixed-header a:hover {
+    color: #ccc;
+  }
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 767px) {
+  .fixed-header {
+    display: none;
+  }
   header.md\:hidden {
     /* スマホ用headerにだけ適用 */
     height: 60px; /* 高さを増やして余裕を持たせる */
