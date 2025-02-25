@@ -222,10 +222,12 @@ header nav a:hover {
   }
   header.md\:hidden {
     /* スマホ用headerにだけ適用 */
-    height: 40px; /* お好みの値に */
+    height: 60px; /* 高さを増やして余裕を持たせる */
     padding-top: env(safe-area-inset-top);
     /* iOS 11~12 互換 */
     /* padding-top: constant(safe-area-inset-top); */
+    display: flex;
+    align-items: center; /* 縦方向中央揃え */
   }
 }
 
@@ -233,7 +235,8 @@ header nav a:hover {
 .menu-open {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  justify-content: flex-start; /* メニュー項目を上部に揃える */
+  padding: 6rem 1rem 1rem 1rem; /* 上部に余白を追加 */
   background-color: rgba(0, 0, 0, 0.9); /* 黒に近い背景色 */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
   width: 80%; /* 右側に少し余裕を持たせる */
