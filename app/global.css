@@ -215,48 +215,6 @@ header nav a:hover {
   }
 }
 
-/* スマホ用のスタイル */
-@media (max-width: 767px) {
-  .fixed-header {
-    display: none;
-  }
-  
-  .menu-button {
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 8px 0 0 8px;
-    padding: 10px;
-  }
-  
-  .menu-open {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.9);
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-    min-width: 200px;
-    border-radius: 8px 0 0 8px;
-  }
-
-  .menu-open a {
-    padding: 10px 20px;
-    text-align: right;
-    width: 100%;
-    border-bottom: 1px solid rgba(204, 204, 204, 0.3);
-    transition: all 0.3s ease;
-  }
-
-  .menu-open a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding-right: 25px;
-  }
-
-  .menu-open a:last-child {
-    border-bottom: none;
-  }
-}
-
 /* 既存のメニューを非表示 */
 .menu {
   display: none;
@@ -345,9 +303,14 @@ header nav a:hover {
   .fixed-header {
     display: none;
   }
+  .menu-button {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px 0 0 8px;
+    padding: 10px;
+  }
   header.md\:hidden {
     /* スマホ用headerにだけ適用 */
-    height: 60px; /* 高さを増やして余裕を持たせる */
+    height: 40px; /* 高さを増やして余裕を持たせる */
     padding-top: env(safe-area-inset-top);
     /* iOS 11~12 互換 */
     /* padding-top: constant(safe-area-inset-top); */
@@ -375,6 +338,7 @@ body.menu-open-active {
 
 .menu-open a {
   padding: 10px 0;
+  text-align: left;
   border-bottom: 1px solid #ccc; /* 境界線を追加 */
 }
 

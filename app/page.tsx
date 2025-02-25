@@ -36,11 +36,11 @@ const Header = () => {
         </div>
         {isMenuOpen && (
           <nav className={`menu-open ${isMenuOpen ? 'active' : ''} fixed top-1/2 -translate-y-1/2 right-0`}>  
-            <a href="#Profile" className="block py-2 hover:text-gray-300" onClick={toggleMenu}>PROFILE</a>
-            <a href="#Skill" className="block py-2 hover:text-gray-300" onClick={toggleMenu}>SKILL</a>
-            <a href="#Works" className="block py-2 hover:text-gray-300" onClick={toggleMenu}>WORKS</a>
-            <a href="#Blog" className="block py-2 hover:text-gray-300" onClick={toggleMenu}>BLOG</a>
-            <a href="#Contact" className="block py-2 hover:text-gray-300" onClick={toggleMenu}>CONTACT</a>
+            <a href="#Profile" className="block py-2 px-6 hover:text-gray-300 text-left w-full" onClick={toggleMenu}>PROFILE</a>
+            <a href="#Skill" className="block py-2 px-6 hover:text-gray-300 text-left w-full" onClick={toggleMenu}>SKILL</a>
+            <a href="#Works" className="block py-2 px-6 hover:text-gray-300 text-left w-full" onClick={toggleMenu}>WORKS</a>
+            <a href="#Blog" className="block py-2 px-6 hover:text-gray-300 text-left w-full" onClick={toggleMenu}>BLOG</a>
+            <a href="#Contact" className="block py-2 px-6 hover:text-gray-300 text-left w-full" onClick={toggleMenu}>CONTACT</a>
           </nav>
         )}
       </header>
